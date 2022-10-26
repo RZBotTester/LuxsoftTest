@@ -60,6 +60,7 @@ class RepoOperator(GithubOperator):
             'is_template': True,
             'auto_init': True,
         }
+        print('creating_repo https://github.com/{user}/{repo}'.format(user = self._auth.username, repo = repo_name))
         return requests.post(url = '{url}/user/repos'.format(url=self._auth.url), 
                              headers = self._headers, 
                              data = json.dumps(payload))
